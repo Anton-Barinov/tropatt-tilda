@@ -1,6 +1,19 @@
+# Build artifacts.
 dist/
 .build/
-var/
-config.php
 *.zip
 *.log
+
+# Runtime state (delivery spool, tokens, rate-limit state, logs) — never committed.
+/var/
+
+# Local configuration only: the `config.php` created from `config.example.php`
+# in the repository root.
+#
+# The leading slash is load-bearing. Git matches .gitignore patterns
+# case-insensitively when core.ignorecase is true (the default on case-sensitive
+# filesystems such as macOS and Windows), so a bare `config.php` rule also
+# matches `lib/Config.php` — the Config class silently stayed out of every commit,
+# and a fresh clone fatalled on its first request because every entry point does
+# `require_once lib/Config.php`. Keep this anchored.
+/config.php
