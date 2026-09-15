@@ -1,0 +1,6 @@
+dist/
+.build/
+var/
+config.php
+*.zip
+*.log
