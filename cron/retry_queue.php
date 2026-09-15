@@ -12,6 +12,7 @@ require_once dirname(__DIR__) . '/lib/FileQueue.php';
 require_once dirname(__DIR__) . '/lib/ConnectorLogger.php';
 
 use Tropatt\Tilda\Config;
+use Tropatt\Tilda\ConnectorLogger;
 use Tropatt\Tilda\CrmClient;
 use Tropatt\Tilda\FileQueue;
 

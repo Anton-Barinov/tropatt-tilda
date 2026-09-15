@@ -13,12 +13,14 @@
 
 require_once dirname(__DIR__) . '/lib/Config.php';
 require_once dirname(__DIR__) . '/lib/SignatureValidator.php';
+require_once dirname(__DIR__) . '/lib/IpAllowlist.php';
 require_once dirname(__DIR__) . '/lib/TildaMapper.php';
 require_once dirname(__DIR__) . '/lib/CrmClient.php';
 require_once dirname(__DIR__) . '/lib/FileQueue.php';
 require_once dirname(__DIR__) . '/lib/ConnectorLogger.php';
 
 use Tropatt\Tilda\Config;
+use Tropatt\Tilda\ConnectorLogger;
 use Tropatt\Tilda\CrmClient;
 use Tropatt\Tilda\FileQueue;
 use Tropatt\Tilda\IpAllowlist;

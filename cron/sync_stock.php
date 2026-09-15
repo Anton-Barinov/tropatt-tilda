@@ -15,6 +15,7 @@ require_once dirname(__DIR__) . '/lib/StoreApiClient.php';
 require_once dirname(__DIR__) . '/lib/ConnectorLogger.php';
 
 use Tropatt\Tilda\Config;
+use Tropatt\Tilda\CrmClient;
 use Tropatt\Tilda\StoreApiClient;
 
 Config::load();
@@ -27,7 +28,7 @@ if ($source === '') {
 
 $raw = null;
 if (preg_match('#^https?://#i', $source)) {
-    $response = \Tropatt\Tilda\CrmClient::send('GET', $source, '');
+    $response = CrmClient::send('GET', $source, '');
     $raw = $response['success'] ? $response['body'] : null;
 } elseif (is_file($source)) {
     $raw = (string)file_get_contents($source);

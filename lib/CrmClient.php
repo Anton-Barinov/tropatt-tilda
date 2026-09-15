@@ -95,7 +95,10 @@ class CrmClient
 
         $flat = array();
         foreach ($headers as $name => $value) {
-            $flat[] = $name . ': ' . $value;
+            // Accept both an associative array (name => value) and a ready-made
+            // list of "Name: value" strings: numeric keys must not be prefixed,
+            // otherwise the request carries headers literally named "0", "1", ...
+            $flat[] = is_int($name) ? (string)$value : $name . ': ' . $value;
         }
 
         $ch = curl_init($url);
